@@ -13,7 +13,7 @@ sources:
 targets:
   screenshothis:
     target: typescript
-    source: Polar-OAS
+    source: Screenshothis API
     publish:
       npm:
         token: $npm_token

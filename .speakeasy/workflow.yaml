@@ -14,6 +14,9 @@ targets:
     screenshothis:
         target: typescript
         source: Screenshothis API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api-typescript-code-samples

@@ -21,7 +21,7 @@ generation:
     oAuth2PasswordEnabled: false
   sdkHooksConfigAccess: true
 typescript:
-  version: 1.0.4
+  version: 1.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -52,7 +52,7 @@ typescript:
   methodArguments: infer-optional-args
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: '@screenshothis/sdk'
+  packageName: "@screenshothis/sdk"
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true

@@ -10,15 +10,16 @@ let value: HealthCheck = {
   timestamp: "<value>",
   uptime: 6855.11,
   checks: [],
+  version: "1.0.0",
 };
 ```
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `status`                             | [models.Status](../models/status.md) | :heavy_check_mark:                   | N/A                                  |
-| `timestamp`                          | *string*                             | :heavy_check_mark:                   | N/A                                  |
-| `uptime`                             | *number*                             | :heavy_check_mark:                   | N/A                                  |
-| `checks`                             | [models.Check](../models/check.md)[] | :heavy_check_mark:                   | N/A                                  |
-| `version`                            | *string*                             | :heavy_minus_sign:                   | N/A                                  |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `status`                             | [models.Status](../models/status.md) | :heavy_check_mark:                   | Overall health status of the system  |                                      |
+| `timestamp`                          | *string*                             | :heavy_check_mark:                   | Timestamp of the health check        |                                      |
+| `uptime`                             | *number*                             | :heavy_check_mark:                   | Uptime of the service in seconds     |                                      |
+| `checks`                             | [models.Check](../models/check.md)[] | :heavy_check_mark:                   | Array of health check results        |                                      |
+| `version`                            | *string*                             | :heavy_minus_sign:                   | Application version or commit hash   | 1.0.0                                |

@@ -7,7 +7,9 @@ import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$healthGetLive: ToolDefinition = {
   name: "health-get-live",
-  description: ``,
+  description: `Liveness probe
+
+Kubernetes-compatible liveness probe that indicates whether the service is alive and functioning. This lightweight check verifies the application is responsive and should be used by orchestrators to determine if the container needs to be restarted.`,
   tool: async (client, ctx) => {
     const [result, apiCall] = await healthGetLive(
       client,

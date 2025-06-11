@@ -11,6 +11,12 @@ import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Health extends ClientSDK {
+  /**
+   * Comprehensive health check
+   *
+   * @remarks
+   * Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems.
+   */
   async get(
     options?: RequestOptions,
   ): Promise<models.HealthCheck> {
@@ -20,6 +26,12 @@ export class Health extends ClientSDK {
     ));
   }
 
+  /**
+   * Readiness probe
+   *
+   * @remarks
+   * Kubernetes-compatible readiness probe that verifies the service is ready to accept traffic. Checks database connectivity to ensure the service can handle requests. Used by orchestrators to determine when to route traffic to this instance.
+   */
   async getReady(
     options?: RequestOptions,
   ): Promise<operations.GetHealthReadyResponse> {
@@ -29,6 +41,12 @@ export class Health extends ClientSDK {
     ));
   }
 
+  /**
+   * Liveness probe
+   *
+   * @remarks
+   * Kubernetes-compatible liveness probe that indicates whether the service is alive and functioning. This lightweight check verifies the application is responsive and should be used by orchestrators to determine if the container needs to be restarted.
+   */
   async getLive(
     options?: RequestOptions,
   ): Promise<operations.GetHealthLiveResponse> {

@@ -1,25 +1,25 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-  Screenshothis API:
-    inputs:
-      - location: https://api.screenshothis.com/openapi
-    overlays:
-      - location: .speakeasy/speakeasy-modifications-overlay.yaml
-    transformations:
-      - removeUnused: true
-    registry:
-      location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api
+    Screenshothis API:
+        inputs:
+            - location: https://api.screenshothis.com/openapi
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        transformations:
+            - removeUnused: true
+        registry:
+            location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api
 targets:
-  screenshothis:
-    target: typescript
-    source: Screenshothis API
-    publish:
-      npm:
-        token: $npm_token
-    codeSamples:
-      output: codeSamples.yaml
-      registry:
-        location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api-typescript-code-samples
-      labelOverride:
-        fixedValue: Typescript (SDK)
+    screenshothis:
+        target: typescript
+        source: Screenshothis API
+        publish:
+            npm:
+                token: $npm_token
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)

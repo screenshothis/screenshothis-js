@@ -3,21 +3,21 @@
 
 ## Supported Types
 
-### `string`
+### `ReadableStream<Uint8Array>`
 
 ```typescript
-const value: string = "<value>";
+const value: ReadableStream<Uint8Array> = await openAsBlob("example.file");
 ```
 
-### `string`
+### `ReadableStream<Uint8Array>`
 
 ```typescript
-const value: string = "<value>";
+const value: ReadableStream<Uint8Array> = await openAsBlob("example.file");
 ```
 
-### `string`
+### `ReadableStream<Uint8Array>`
 
 ```typescript
-const value: string = "<value>";
+const value: ReadableStream<Uint8Array> = await openAsBlob("example.file");
 ```
 

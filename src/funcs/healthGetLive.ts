@@ -22,6 +22,12 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
+/**
+ * Liveness probe
+ *
+ * @remarks
+ * Kubernetes-compatible liveness probe that indicates whether the service is alive and functioning. This lightweight check verifies the application is responsive and should be used by orchestrators to determine if the container needs to be restarted.
+ */
 export function healthGetLive(
   client: ScreenshothisCore,
   options?: RequestOptions,

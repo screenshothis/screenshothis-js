@@ -1,5 +1,7 @@
 # Status
 
+Overall health status of the system
+
 ## Example Usage
 
 ```typescript

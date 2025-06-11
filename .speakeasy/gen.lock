@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 8d1d721b-b170-463d-8b55-01615eec3d7c
 management:
-  docChecksum: ef6d4691ea4be659e9af2cac6d4a2e3a
+  docChecksum: 6994fe15174d07430cbcbfbb04c7b716
   docVersion: 1.0.0
-  speakeasyVersion: 1.559.0
-  generationVersion: 2.624.0
-  releaseVersion: 1.0.0
-  configChecksum: 8fa4313a599c7bddad56b6a5bc89ca8c
+  speakeasyVersion: 1.561.0
+  generationVersion: 2.628.0
+  releaseVersion: 1.1.0
+  configChecksum: 14eb90d375f0fd765b43dcf1e090dd3a
   repoURL: https://github.com/screenshothis/screenshothis-js.git
   installationURL: https://github.com/screenshothis/screenshothis-js
   published: true
@@ -15,9 +15,10 @@ features:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.21.10
+    core: 3.21.11
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
+    downloadStreams: 0.1.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurityCallbacks: 0.1.0
@@ -144,8 +145,8 @@ examples:
     speakeasy-default-get-/v1-/screenshots/take:
       parameters:
         query:
-          api_key: "<value>"
-          url: "https://powerful-tackle.org/"
+          api_key: "sk_live_abcdef1234567890abcdef1234567890"
+          url: "https://example.com"
           width: 1920
           height: 1080
           is_mobile: false
@@ -162,6 +163,12 @@ examples:
           is_cached: false
           cache_ttl: 3600
           bypass_csp: false
+          selector: ".main-content"
+          block_requests: "*.doubleclick.net\n*.googletagmanager.com\n*/analytics/*"
+          block_resources: ["script", "stylesheet", "font"]
+          cache_key: "homepage-desktop-light"
+          headers: "User-Agent: MyBot/1.0\nAuthorization: Bearer token123\nX-Custom-Header: value"
+          cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\nuser_pref=dark_mode; Max-Age=3600"
       responses:
         "200":
           image/jpeg: "<value>"
@@ -175,9 +182,9 @@ examples:
     speakeasy-default-get-/health:
       responses:
         "200":
-          application/json: {"status": "degraded", "timestamp": "<value>", "uptime": 9820.71, "checks": []}
+          application/json: {"status": "degraded", "timestamp": "<value>", "uptime": 9820.71, "checks": [], "version": "1.0.0"}
         "503":
-          application/json: {"status": "healthy", "timestamp": "<value>", "uptime": 5122.36, "checks": [{"name": "<value>", "status": "pass"}]}
+          application/json: {"status": "healthy", "timestamp": "<value>", "uptime": 5122.36, "checks": [{"name": "<value>", "status": "pass"}], "version": "1.0.0"}
   get_/health/ready:
     speakeasy-default-get-/health/ready:
       responses:

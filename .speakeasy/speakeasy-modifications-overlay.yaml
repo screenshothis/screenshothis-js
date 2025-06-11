@@ -1,0 +1,65 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.3
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/health"]["get"]
+    update:
+      x-speakeasy-group: health
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.health.get()
+      before: sdk.<no_group>.get_/health()
+      created_at: 1749605472986
+      reviewed_at: 1749605503828
+      type: method-name
+  - target: $["paths"]["/health/ready"]["get"]
+    update:
+      x-speakeasy-group: health
+      x-speakeasy-name-override: getReady
+    x-speakeasy-metadata:
+      after: sdk.health.getReady()
+      before: sdk.<no_group>.get_/health/ready()
+      created_at: 1749605472986
+      reviewed_at: 1749605503828
+      type: method-name
+  - target: $["paths"]["/health/live"]["get"]
+    update:
+      x-speakeasy-group: health
+      x-speakeasy-name-override: getLive
+    x-speakeasy-metadata:
+      after: sdk.health.getLive()
+      before: sdk.<no_group>.get_/health/live()
+      created_at: 1749605472986
+      reviewed_at: 1749605503828
+      type: method-name
+  - target: $["paths"]["/v1/screenshots/take"]["get"]
+    update:
+      x-speakeasy-group: screenshots
+      x-speakeasy-name-override: take
+    x-speakeasy-metadata:
+      after: sdk.screenshots.take()
+      before: sdk.<no_group>.get_/v1/screenshots/take()
+      created_at: 1749605472986
+      reviewed_at: 1749605503828
+      type: method-name
+  - target: $
+    update:
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+          - 5XX
+        retryConnectionErrors: true
+    x-speakeasy-metadata:
+      created_at: 1749605822199
+      type: user-edit

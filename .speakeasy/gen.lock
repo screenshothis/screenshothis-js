@@ -1,0 +1,193 @@
+lockVersion: 2.0.0
+id: 8d1d721b-b170-463d-8b55-01615eec3d7c
+management:
+  docChecksum: ef6d4691ea4be659e9af2cac6d4a2e3a
+  docVersion: 1.0.0
+  speakeasyVersion: 1.559.0
+  generationVersion: 2.624.0
+  releaseVersion: 1.0.3
+  configChecksum: 1cc8e8f784826e5ce9951c48380efd7c
+features:
+  typescript:
+    acceptHeaders: 2.81.2
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.11
+    core: 3.21.10
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.5
+    groups: 2.81.2
+    mcpServer: 0.9.2
+    methodArguments: 0.1.2
+    nameOverrides: 2.81.2
+    nullables: 0.1.1
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.3.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/check.md
+  - docs/models/checkstatus.md
+  - docs/models/errors/forbiddenerror.md
+  - docs/models/errors/healthcheckerror.md
+  - docs/models/errors/internalservererror.md
+  - docs/models/errors/notaliveerror.md
+  - docs/models/errors/notreadyerror.md
+  - docs/models/healthcheck.md
+  - docs/models/operations/blockresource.md
+  - docs/models/operations/format.md
+  - docs/models/operations/gethealthliveresponse.md
+  - docs/models/operations/gethealthreadyresponse.md
+  - docs/models/operations/getv1screenshotstakerequest.md
+  - docs/models/operations/getv1screenshotstakeresponse.md
+  - docs/models/operations/preferscolorscheme.md
+  - docs/models/operations/prefersreducedmotion.md
+  - docs/models/operations/statusalive.md
+  - docs/models/operations/statusnotalive.md
+  - docs/models/operations/statusnotready.md
+  - docs/models/operations/statusready.md
+  - docs/models/status.md
+  - docs/sdks/health/README.md
+  - docs/sdks/screenshothis/README.md
+  - docs/sdks/screenshots/README.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/healthGet.ts
+  - src/funcs/healthGetLive.ts
+  - src/funcs/healthGetReady.ts
+  - src/funcs/screenshotsTake.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/healthGet.ts
+  - src/mcp-server/tools/healthGetLive.ts
+  - src/mcp-server/tools/healthGetReady.ts
+  - src/mcp-server/tools/screenshotsTake.ts
+  - src/models/errors/gethealthlive.ts
+  - src/models/errors/gethealthready.ts
+  - src/models/errors/getv1screenshotstake.ts
+  - src/models/errors/healthcheckerror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/responsevalidationerror.ts
+  - src/models/errors/screenshothisdefaulterror.ts
+  - src/models/errors/screenshothiserror.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/healthcheck.ts
+  - src/models/index.ts
+  - src/models/operations/gethealthlive.ts
+  - src/models/operations/gethealthready.ts
+  - src/models/operations/getv1screenshotstake.ts
+  - src/models/operations/index.ts
+  - src/sdk/health.ts
+  - src/sdk/index.ts
+  - src/sdk/screenshots.ts
+  - src/sdk/sdk.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  get_/v1/screenshots/take:
+    speakeasy-default-get-/v1-/screenshots/take:
+      parameters:
+        query:
+          api_key: "<value>"
+          url: "https://powerful-tackle.org/"
+          width: 1920
+          height: 1080
+          is_mobile: false
+          is_landscape: false
+          has_touch: false
+          device_scale_factor: 1
+          format: "jpeg"
+          quality: 80
+          block_ads: false
+          block_cookie_banners: false
+          block_trackers: false
+          prefers_color_scheme: "light"
+          prefers_reduced_motion: "no-preference"
+          is_cached: false
+          cache_ttl: 3600
+          bypass_csp: false
+      responses:
+        "200":
+          image/jpeg: "<value>"
+          image/png: "<value>"
+          image/webp: "<value>"
+        "403":
+          application/json: {"error": "<value>", "requestId": "<id>"}
+        "500":
+          application/json: {"requestId": "<id>", "message": "<value>", "code": "<value>"}
+  get_/health:
+    speakeasy-default-get-/health:
+      responses:
+        "200":
+          application/json: {"status": "degraded", "timestamp": "<value>", "uptime": 9820.71, "checks": []}
+        "503":
+          application/json: {"status": "healthy", "timestamp": "<value>", "uptime": 5122.36, "checks": [{"name": "<value>", "status": "pass"}]}
+  get_/health/ready:
+    speakeasy-default-get-/health/ready:
+      responses:
+        "200":
+          application/json: {"status": "ready", "timestamp": "<value>"}
+        "503":
+          application/json: {"status": "not ready", "timestamp": "<value>", "error": "<value>"}
+  get_/health/live:
+    speakeasy-default-get-/health/live:
+      responses:
+        "200":
+          application/json: {"status": "alive", "timestamp": "<value>"}
+        "503":
+          application/json: {"status": "not alive", "timestamp": "<value>", "error": "<value>"}
+examplesVersion: 1.0.2
+generatedTests: {}

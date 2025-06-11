@@ -1,0 +1,78 @@
+# Screenshots
+(*screenshots*)
+
+## Overview
+
+### Available Operations
+
+* [take](#take)
+
+## take
+
+### Example Usage
+
+```typescript
+import { Screenshothis } from "@screenshothis/sdk";
+
+const screenshothis = new Screenshothis();
+
+async function run() {
+  const result = await screenshothis.screenshots.take({
+    apiKey: "<value>",
+    url: "https://powerful-tackle.org/",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ScreenshothisCore } from "@screenshothis/sdk/core.js";
+import { screenshotsTake } from "@screenshothis/sdk/funcs/screenshotsTake.js";
+
+// Use `ScreenshothisCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const screenshothis = new ScreenshothisCore();
+
+async function run() {
+  const res = await screenshotsTake(screenshothis, {
+    apiKey: "<value>",
+    url: "https://powerful-tackle.org/",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("screenshotsTake failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetV1ScreenshotsTakeRequest](../../models/operations/getv1screenshotstakerequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetV1ScreenshotsTakeResponse](../../models/operations/getv1screenshotstakeresponse.md)\>**
+
+### Errors
+
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| errors.ForbiddenError            | 403                              | application/json                 |
+| errors.InternalServerError       | 500                              | application/json                 |
+| errors.ScreenshothisDefaultError | 4XX, 5XX                         | \*/\*                            |

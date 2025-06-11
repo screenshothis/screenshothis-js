@@ -1,0 +1,40 @@
+speakeasyVersion: 1.559.0
+sources:
+    Screenshothis API:
+        sourceNamespace: screenshothis-api
+        sourceRevisionDigest: sha256:3cb13a9fa87c27ad3c8e5e0042e886bd86097be3a8196552ca10c086c542e9ba
+        sourceBlobDigest: sha256:10f676ba0273b1963eb534fd338556cdadf9d732c2dadb84a59aecca0a02a64a
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    screenshothis:
+        source: Screenshothis API
+        sourceNamespace: screenshothis-api
+        sourceRevisionDigest: sha256:3cb13a9fa87c27ad3c8e5e0042e886bd86097be3a8196552ca10c086c542e9ba
+        sourceBlobDigest: sha256:10f676ba0273b1963eb534fd338556cdadf9d732c2dadb84a59aecca0a02a64a
+        codeSamplesNamespace: screenshothis-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:14f327d9fb9515acd5b730196ba87b12d77b49a26b6c2f92011c811c2f0e3d2c
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Screenshothis API:
+            inputs:
+                - location: https://api.screenshothis.com/openapi
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            transformations:
+                - removeUnused: true
+            registry:
+                location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api
+    targets:
+        screenshothis:
+            target: typescript
+            source: Screenshothis API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false

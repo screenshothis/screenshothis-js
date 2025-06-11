@@ -30,6 +30,12 @@ export enum TakeAcceptEnum {
   imageWebp = "image/webp",
 }
 
+/**
+ * Generate optimized website screenshot
+ *
+ * @remarks
+ * Captures high-quality screenshots of websites with advanced optimization features including smart caching, CDN integration, request deduplication, and quota management. Supports multiple image formats (JPEG, PNG, WebP) with customizable dimensions, device emulation, and viewport settings. Implements efficient S3 streaming for large images and conditional requests for optimal performance.
+ */
 export function screenshotsTake(
   client: ScreenshothisCore,
   request: operations.GetV1ScreenshotsTakeRequest,
@@ -116,7 +122,6 @@ async function $do(
     "quality": payload.quality,
     "selector": payload.selector,
     "url": payload.url,
-    "user_agent": payload.user_agent,
     "width": payload.width,
   });
 
@@ -193,17 +198,17 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.text(
+    M.stream(
       200,
       operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
       { ctype: "image/jpeg" },
     ),
-    M.text(
+    M.stream(
       200,
       operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
       { ctype: "image/png" },
     ),
-    M.text(
+    M.stream(
       200,
       operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
       { ctype: "image/webp" },

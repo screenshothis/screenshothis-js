@@ -12,7 +12,9 @@ const args = {
 
 export const tool$screenshotsTake: ToolDefinition<typeof args> = {
   name: "screenshots-take",
-  description: ``,
+  description: `Generate optimized website screenshot
+
+Captures high-quality screenshots of websites with advanced optimization features including smart caching, CDN integration, request deduplication, and quota management. Supports multiple image formats (JPEG, PNG, WebP) with customizable dimensions, device emulation, and viewport settings. Implements efficient S3 streaming for large images and conditional requests for optimal performance.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await screenshotsTake(

@@ -7,7 +7,9 @@ import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$healthGetReady: ToolDefinition = {
   name: "health-get-ready",
-  description: ``,
+  description: `Readiness probe
+
+Kubernetes-compatible readiness probe that verifies the service is ready to accept traffic. Checks database connectivity to ensure the service can handle requests. Used by orchestrators to determine when to route traffic to this instance.`,
   tool: async (client, ctx) => {
     const [result, apiCall] = await healthGetReady(
       client,

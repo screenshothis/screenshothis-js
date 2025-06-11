@@ -22,6 +22,12 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
+/**
+ * Readiness probe
+ *
+ * @remarks
+ * Kubernetes-compatible readiness probe that verifies the service is ready to accept traffic. Checks database connectivity to ensure the service can handle requests. Used by orchestrators to determine when to route traffic to this instance.
+ */
 export function healthGetReady(
   client: ScreenshothisCore,
   options?: RequestOptions,

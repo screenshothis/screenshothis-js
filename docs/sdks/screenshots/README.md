@@ -5,9 +5,11 @@
 
 ### Available Operations
 
-* [take](#take)
+* [take](#take) - Generate optimized website screenshot
 
 ## take
+
+Captures high-quality screenshots of websites with advanced optimization features including smart caching, CDN integration, request deduplication, and quota management. Supports multiple image formats (JPEG, PNG, WebP) with customizable dimensions, device emulation, and viewport settings. Implements efficient S3 streaming for large images and conditional requests for optimal performance.
 
 ### Example Usage
 
@@ -18,8 +20,23 @@ const screenshothis = new Screenshothis();
 
 async function run() {
   const result = await screenshothis.screenshots.take({
-    apiKey: "<value>",
-    url: "https://powerful-tackle.org/",
+    apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+    url: "https://example.com",
+    selector: ".main-content",
+    blockRequests: "*.doubleclick.net\n" +
+    "*.googletagmanager.com\n" +
+    "*/analytics/*",
+    blockResources: [
+      "script",
+      "stylesheet",
+      "font",
+    ],
+    cacheKey: "homepage-desktop-light",
+    headers: "User-Agent: MyBot/1.0\n" +
+    "Authorization: Bearer token123\n" +
+    "X-Custom-Header: value",
+    cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n" +
+    "user_pref=dark_mode; Max-Age=3600",
   });
 
   console.log(result);
@@ -42,8 +59,23 @@ const screenshothis = new ScreenshothisCore();
 
 async function run() {
   const res = await screenshotsTake(screenshothis, {
-    apiKey: "<value>",
-    url: "https://powerful-tackle.org/",
+    apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+    url: "https://example.com",
+    selector: ".main-content",
+    blockRequests: "*.doubleclick.net\n" +
+    "*.googletagmanager.com\n" +
+    "*/analytics/*",
+    blockResources: [
+      "script",
+      "stylesheet",
+      "font",
+    ],
+    cacheKey: "homepage-desktop-light",
+    headers: "User-Agent: MyBot/1.0\n" +
+    "Authorization: Bearer token123\n" +
+    "X-Custom-Header: value",
+    cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n" +
+    "user_pref=dark_mode; Max-Age=3600",
   });
   if (res.ok) {
     const { value: result } = res;

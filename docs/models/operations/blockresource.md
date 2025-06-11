@@ -1,11 +1,13 @@
 # BlockResource
 
+Types of web resources that can be blocked during screenshot capture
+
 ## Example Usage
 
 ```typescript
 import { BlockResource } from "@screenshothis/sdk/models/operations";
 
-let value: BlockResource = "document";
+let value: BlockResource = "script";
 ```
 
 ## Values

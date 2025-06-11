@@ -1,5 +1,7 @@
 # CheckStatus
 
+Status of the health check
+
 ## Example Usage
 
 ```typescript

@@ -176,8 +176,23 @@ const screenshothis = new Screenshothis();
 
 async function run() {
   const result = await screenshothis.screenshots.take({
-    apiKey: "<value>",
-    url: "https://powerful-tackle.org/",
+    apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+    url: "https://example.com",
+    selector: ".main-content",
+    blockRequests: "*.doubleclick.net\n"
+      + "*.googletagmanager.com\n"
+      + "*/analytics/*",
+    blockResources: [
+      "script",
+      "stylesheet",
+      "font",
+    ],
+    cacheKey: "homepage-desktop-light",
+    headers: "User-Agent: MyBot/1.0\n"
+      + "Authorization: Bearer token123\n"
+      + "X-Custom-Header: value",
+    cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n"
+      + "user_pref=dark_mode; Max-Age=3600",
   });
 
   console.log(result);
@@ -196,14 +211,14 @@ run();
 
 ### [health](docs/sdks/health/README.md)
 
-* [get](docs/sdks/health/README.md#get)
-* [getReady](docs/sdks/health/README.md#getready)
-* [getLive](docs/sdks/health/README.md#getlive)
+* [get](docs/sdks/health/README.md#get) - Comprehensive health check
+* [getReady](docs/sdks/health/README.md#getready) - Readiness probe
+* [getLive](docs/sdks/health/README.md#getlive) - Liveness probe
 
 
 ### [screenshots](docs/sdks/screenshots/README.md)
 
-* [take](docs/sdks/screenshots/README.md#take)
+* [take](docs/sdks/screenshots/README.md#take) - Generate optimized website screenshot
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -223,10 +238,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`healthGet`](docs/sdks/health/README.md#get)
-- [`healthGetLive`](docs/sdks/health/README.md#getlive)
-- [`healthGetReady`](docs/sdks/health/README.md#getready)
-- [`screenshotsTake`](docs/sdks/screenshots/README.md#take)
+- [`healthGet`](docs/sdks/health/README.md#get) - Comprehensive health check
+- [`healthGetLive`](docs/sdks/health/README.md#getlive) - Liveness probe
+- [`healthGetReady`](docs/sdks/health/README.md#getready) - Readiness probe
+- [`screenshotsTake`](docs/sdks/screenshots/README.md#take) - Generate optimized website screenshot
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -244,8 +259,23 @@ const screenshothis = new Screenshothis();
 
 async function run() {
   const result = await screenshothis.screenshots.take({
-    apiKey: "<value>",
-    url: "https://powerful-tackle.org/",
+    apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+    url: "https://example.com",
+    selector: ".main-content",
+    blockRequests: "*.doubleclick.net\n"
+      + "*.googletagmanager.com\n"
+      + "*/analytics/*",
+    blockResources: [
+      "script",
+      "stylesheet",
+      "font",
+    ],
+    cacheKey: "homepage-desktop-light",
+    headers: "User-Agent: MyBot/1.0\n"
+      + "Authorization: Bearer token123\n"
+      + "X-Custom-Header: value",
+    cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n"
+      + "user_pref=dark_mode; Max-Age=3600",
   }, {
     retries: {
       strategy: "backoff",
@@ -285,8 +315,23 @@ const screenshothis = new Screenshothis({
 
 async function run() {
   const result = await screenshothis.screenshots.take({
-    apiKey: "<value>",
-    url: "https://powerful-tackle.org/",
+    apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+    url: "https://example.com",
+    selector: ".main-content",
+    blockRequests: "*.doubleclick.net\n"
+      + "*.googletagmanager.com\n"
+      + "*/analytics/*",
+    blockResources: [
+      "script",
+      "stylesheet",
+      "font",
+    ],
+    cacheKey: "homepage-desktop-light",
+    headers: "User-Agent: MyBot/1.0\n"
+      + "Authorization: Bearer token123\n"
+      + "X-Custom-Header: value",
+    cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n"
+      + "user_pref=dark_mode; Max-Age=3600",
   });
 
   console.log(result);
@@ -321,8 +366,23 @@ const screenshothis = new Screenshothis();
 async function run() {
   try {
     const result = await screenshothis.screenshots.take({
-      apiKey: "<value>",
-      url: "https://powerful-tackle.org/",
+      apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+      url: "https://example.com",
+      selector: ".main-content",
+      blockRequests: "*.doubleclick.net\n"
+        + "*.googletagmanager.com\n"
+        + "*/analytics/*",
+      blockResources: [
+        "script",
+        "stylesheet",
+        "font",
+      ],
+      cacheKey: "homepage-desktop-light",
+      headers: "User-Agent: MyBot/1.0\n"
+        + "Authorization: Bearer token123\n"
+        + "X-Custom-Header: value",
+      cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n"
+        + "user_pref=dark_mode; Max-Age=3600",
     });
 
     console.log(result);
@@ -391,8 +451,23 @@ const screenshothis = new Screenshothis({
 
 async function run() {
   const result = await screenshothis.screenshots.take({
-    apiKey: "<value>",
-    url: "https://powerful-tackle.org/",
+    apiKey: "sk_live_abcdef1234567890abcdef1234567890",
+    url: "https://example.com",
+    selector: ".main-content",
+    blockRequests: "*.doubleclick.net\n"
+      + "*.googletagmanager.com\n"
+      + "*/analytics/*",
+    blockResources: [
+      "script",
+      "stylesheet",
+      "font",
+    ],
+    cacheKey: "homepage-desktop-light",
+    headers: "User-Agent: MyBot/1.0\n"
+      + "Authorization: Bearer token123\n"
+      + "X-Custom-Header: value",
+    cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\n"
+      + "user_pref=dark_mode; Max-Age=3600",
   });
 
   console.log(result);

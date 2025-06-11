@@ -8,32 +8,74 @@ import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
+/**
+ * Overall health status of the system
+ */
 export const Status = {
   Healthy: "healthy",
   Degraded: "degraded",
   Unhealthy: "unhealthy",
 } as const;
+/**
+ * Overall health status of the system
+ */
 export type Status = ClosedEnum<typeof Status>;
 
+/**
+ * Status of the health check
+ */
 export const CheckStatus = {
   Pass: "pass",
   Fail: "fail",
 } as const;
+/**
+ * Status of the health check
+ */
 export type CheckStatus = ClosedEnum<typeof CheckStatus>;
 
 export type Check = {
+  /**
+   * Name of the health check
+   */
   name: string;
+  /**
+   * Status of the health check
+   */
   status: CheckStatus;
+  /**
+   * Duration of the health check in milliseconds
+   */
   duration?: number | undefined;
-  error?: string | undefined;
+  /**
+   * Detailed information about the health check
+   */
   details?: { [k: string]: any | null } | undefined;
+  /**
+   * Error message if the health check failed
+   */
+  error?: string | undefined;
 };
 
 export type HealthCheck = {
+  /**
+   * Overall health status of the system
+   */
   status: Status;
+  /**
+   * Timestamp of the health check
+   */
   timestamp: string;
+  /**
+   * Uptime of the service in seconds
+   */
   uptime: number;
+  /**
+   * Array of health check results
+   */
   checks: Array<Check>;
+  /**
+   * Application version or commit hash
+   */
   version?: string | undefined;
 };
 
@@ -81,8 +123,8 @@ export const Check$inboundSchema: z.ZodType<Check, z.ZodTypeDef, unknown> = z
     name: z.string(),
     status: CheckStatus$inboundSchema,
     duration: z.number().optional(),
-    error: z.string().optional(),
     details: z.record(z.nullable(z.any())).optional(),
+    error: z.string().optional(),
   });
 
 /** @internal */
@@ -90,8 +132,8 @@ export type Check$Outbound = {
   name: string;
   status: string;
   duration?: number | undefined;
-  error?: string | undefined;
   details?: { [k: string]: any | null } | undefined;
+  error?: string | undefined;
 };
 
 /** @internal */
@@ -103,8 +145,8 @@ export const Check$outboundSchema: z.ZodType<
   name: z.string(),
   status: CheckStatus$outboundSchema,
   duration: z.number().optional(),
-  error: z.string().optional(),
   details: z.record(z.nullable(z.any())).optional(),
+  error: z.string().optional(),
 });
 
 /**

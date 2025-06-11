@@ -7,18 +7,48 @@ import * as models from "../index.js";
 import { ScreenshothisError } from "./screenshothiserror.js";
 
 export type HealthCheckErrorData = {
+  /**
+   * Overall health status of the system
+   */
   status: models.Status;
+  /**
+   * Timestamp of the health check
+   */
   timestamp: string;
+  /**
+   * Uptime of the service in seconds
+   */
   uptime: number;
+  /**
+   * Array of health check results
+   */
   checks: Array<models.Check>;
+  /**
+   * Application version or commit hash
+   */
   version?: string | undefined;
 };
 
 export class HealthCheckError extends ScreenshothisError {
+  /**
+   * Overall health status of the system
+   */
   status: models.Status;
+  /**
+   * Timestamp of the health check
+   */
   timestamp: string;
+  /**
+   * Uptime of the service in seconds
+   */
   uptime: number;
+  /**
+   * Array of health check results
+   */
   checks: Array<models.Check>;
+  /**
+   * Application version or commit hash
+   */
   version?: string | undefined;
 
   /** The original data that was passed to this error instance. */

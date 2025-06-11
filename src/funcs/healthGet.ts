@@ -22,6 +22,12 @@ import * as models from "../models/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
+/**
+ * Comprehensive health check
+ *
+ * @remarks
+ * Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems.
+ */
 export function healthGet(
   client: ScreenshothisCore,
   options?: RequestOptions,

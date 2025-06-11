@@ -9,13 +9,22 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+/**
+ * Output image format. JPEG offers smaller file sizes, PNG supports transparency, WebP provides modern compression.
+ */
 export const Format = {
   Jpeg: "jpeg",
   Png: "png",
   Webp: "webp",
 } as const;
+/**
+ * Output image format. JPEG offers smaller file sizes, PNG supports transparency, WebP provides modern compression.
+ */
 export type Format = ClosedEnum<typeof Format>;
 
+/**
+ * Types of web resources that can be blocked during screenshot capture
+ */
 export const BlockResource = {
   Document: "document",
   Stylesheet: "stylesheet",
@@ -36,18 +45,33 @@ export const BlockResource = {
   Preflight: "preflight",
   Other: "other",
 } as const;
+/**
+ * Types of web resources that can be blocked during screenshot capture
+ */
 export type BlockResource = ClosedEnum<typeof BlockResource>;
 
+/**
+ * Set the preferred color scheme for websites that support dark/light mode theming
+ */
 export const PrefersColorScheme = {
   Light: "light",
   Dark: "dark",
 } as const;
+/**
+ * Set the preferred color scheme for websites that support dark/light mode theming
+ */
 export type PrefersColorScheme = ClosedEnum<typeof PrefersColorScheme>;
 
+/**
+ * Accessibility setting to reduce animations and transitions for motion-sensitive users
+ */
 export const PrefersReducedMotion = {
   NoPreference: "no-preference",
   Reduce: "reduce",
 } as const;
+/**
+ * Accessibility setting to reduce animations and transitions for motion-sensitive users
+ */
 export type PrefersReducedMotion = ClosedEnum<typeof PrefersReducedMotion>;
 
 export type GetV1ScreenshotsTakeRequest = {
@@ -60,6 +84,9 @@ export type GetV1ScreenshotsTakeRequest = {
   isLandscape?: boolean | null | undefined;
   hasTouch?: boolean | null | undefined;
   deviceScaleFactor?: number | null | undefined;
+  /**
+   * Output image format. JPEG offers smaller file sizes, PNG supports transparency, WebP provides modern compression.
+   */
   format?: Format | undefined;
   quality?: number | undefined;
   blockAds?: boolean | null | undefined;
@@ -67,18 +94,26 @@ export type GetV1ScreenshotsTakeRequest = {
   blockTrackers?: boolean | null | undefined;
   blockRequests?: string | undefined;
   blockResources?: Array<BlockResource> | undefined;
+  /**
+   * Set the preferred color scheme for websites that support dark/light mode theming
+   */
   prefersColorScheme?: PrefersColorScheme | undefined;
+  /**
+   * Accessibility setting to reduce animations and transitions for motion-sensitive users
+   */
   prefersReducedMotion?: PrefersReducedMotion | undefined;
   isCached?: boolean | null | undefined;
   cacheTtl?: number | undefined;
   cacheKey?: string | undefined;
-  userAgent?: string | undefined;
   headers?: string | undefined;
   cookies?: string | undefined;
   bypassCsp?: boolean | null | undefined;
 };
 
-export type GetV1ScreenshotsTakeResponse = string | string | string;
+export type GetV1ScreenshotsTakeResponse =
+  | ReadableStream<Uint8Array>
+  | ReadableStream<Uint8Array>
+  | ReadableStream<Uint8Array>;
 
 /** @internal */
 export const Format$inboundSchema: z.ZodNativeEnum<typeof Format> = z
@@ -191,7 +226,6 @@ export const GetV1ScreenshotsTakeRequest$inboundSchema: z.ZodType<
   is_cached: z.nullable(z.boolean().default(false)),
   cache_ttl: z.number().default(3600),
   cache_key: z.string().optional(),
-  user_agent: z.string().optional(),
   headers: z.string().optional(),
   cookies: z.string().optional(),
   bypass_csp: z.nullable(z.boolean().default(false)),
@@ -212,7 +246,6 @@ export const GetV1ScreenshotsTakeRequest$inboundSchema: z.ZodType<
     "is_cached": "isCached",
     "cache_ttl": "cacheTtl",
     "cache_key": "cacheKey",
-    "user_agent": "userAgent",
     "bypass_csp": "bypassCsp",
   });
 });
@@ -240,7 +273,6 @@ export type GetV1ScreenshotsTakeRequest$Outbound = {
   is_cached: boolean | null;
   cache_ttl: number;
   cache_key?: string | undefined;
-  user_agent?: string | undefined;
   headers?: string | undefined;
   cookies?: string | undefined;
   bypass_csp: boolean | null;
@@ -275,7 +307,6 @@ export const GetV1ScreenshotsTakeRequest$outboundSchema: z.ZodType<
   isCached: z.nullable(z.boolean().default(false)),
   cacheTtl: z.number().default(3600),
   cacheKey: z.string().optional(),
-  userAgent: z.string().optional(),
   headers: z.string().optional(),
   cookies: z.string().optional(),
   bypassCsp: z.nullable(z.boolean().default(false)),
@@ -296,7 +327,6 @@ export const GetV1ScreenshotsTakeRequest$outboundSchema: z.ZodType<
     isCached: "is_cached",
     cacheTtl: "cache_ttl",
     cacheKey: "cache_key",
-    userAgent: "user_agent",
     bypassCsp: "bypass_csp",
   });
 });
@@ -339,17 +369,28 @@ export const GetV1ScreenshotsTakeResponse$inboundSchema: z.ZodType<
   GetV1ScreenshotsTakeResponse,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.string(), z.string()]);
+> = z.union([
+  z.instanceof(ReadableStream<Uint8Array>),
+  z.instanceof(ReadableStream<Uint8Array>),
+  z.instanceof(ReadableStream<Uint8Array>),
+]);
 
 /** @internal */
-export type GetV1ScreenshotsTakeResponse$Outbound = string | string | string;
+export type GetV1ScreenshotsTakeResponse$Outbound =
+  | ReadableStream<Uint8Array>
+  | ReadableStream<Uint8Array>
+  | ReadableStream<Uint8Array>;
 
 /** @internal */
 export const GetV1ScreenshotsTakeResponse$outboundSchema: z.ZodType<
   GetV1ScreenshotsTakeResponse$Outbound,
   z.ZodTypeDef,
   GetV1ScreenshotsTakeResponse
-> = z.union([z.string(), z.string(), z.string()]);
+> = z.union([
+  z.instanceof(ReadableStream<Uint8Array>),
+  z.instanceof(ReadableStream<Uint8Array>),
+  z.instanceof(ReadableStream<Uint8Array>),
+]);
 
 /**
  * @internal

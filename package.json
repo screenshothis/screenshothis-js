@@ -1,6 +1,6 @@
 {
   "name": "@screenshothis/sdk",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "author": "Speakeasy",
   "type": "module",
   "bin": {

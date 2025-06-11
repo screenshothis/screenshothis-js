@@ -2,20 +2,19 @@ speakeasyVersion: 1.559.0
 sources:
     Screenshothis API:
         sourceNamespace: screenshothis-api
-        sourceRevisionDigest: sha256:2af76a166162720cd1e507ac22eefb8cb42e5c5b91ea36ccc4911c02f3ecc347
+        sourceRevisionDigest: sha256:de87d9e76fdbcf2e9ced3d4b20e96650a801a799e83aaa53302369099ad6ee4b
         sourceBlobDigest: sha256:62b81ed020849df389d5f2316b33458df4951c555203dec860e845886e893287
         tags:
             - latest
-            - speakeasy-sdk-regen-1749608208
             - 1.0.0
 targets:
     screenshothis:
         source: Screenshothis API
         sourceNamespace: screenshothis-api
-        sourceRevisionDigest: sha256:2af76a166162720cd1e507ac22eefb8cb42e5c5b91ea36ccc4911c02f3ecc347
+        sourceRevisionDigest: sha256:de87d9e76fdbcf2e9ced3d4b20e96650a801a799e83aaa53302369099ad6ee4b
         sourceBlobDigest: sha256:62b81ed020849df389d5f2316b33458df4951c555203dec860e845886e893287
         codeSamplesNamespace: screenshothis-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:927371e50cb0c13745e27716ff8a617759df51ebf0792478bc2ce4347b8104d2
+        codeSamplesRevisionDigest: sha256:8a1ba9369b5b45d7efc7d89334fdfd44946b00bba79ed02834cc2f09638419a3
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

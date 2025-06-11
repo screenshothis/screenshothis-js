@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.559.0
   generationVersion: 2.624.0
-  releaseVersion: 1.0.4
-  configChecksum: 1f00fe362d67d82b192178ce36274c06
+  releaseVersion: 1.0.0
+  configChecksum: 8fa4313a599c7bddad56b6a5bc89ca8c
   repoURL: https://github.com/screenshothis/screenshothis-js.git
   installationURL: https://github.com/screenshothis/screenshothis-js
   published: true

@@ -52,7 +52,7 @@ typescript:
   methodArguments: infer-optional-args
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: "@screenshothis/sdk"
+  packageName: '@screenshothis/sdk'
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true

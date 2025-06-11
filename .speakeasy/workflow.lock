@@ -2,8 +2,8 @@ speakeasyVersion: 1.559.0
 sources:
     Screenshothis API:
         sourceNamespace: screenshothis-api
-        sourceRevisionDigest: sha256:3cb13a9fa87c27ad3c8e5e0042e886bd86097be3a8196552ca10c086c542e9ba
-        sourceBlobDigest: sha256:10f676ba0273b1963eb534fd338556cdadf9d732c2dadb84a59aecca0a02a64a
+        sourceRevisionDigest: sha256:de87d9e76fdbcf2e9ced3d4b20e96650a801a799e83aaa53302369099ad6ee4b
+        sourceBlobDigest: sha256:62b81ed020849df389d5f2316b33458df4951c555203dec860e845886e893287
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     screenshothis:
         source: Screenshothis API
         sourceNamespace: screenshothis-api
-        sourceRevisionDigest: sha256:3cb13a9fa87c27ad3c8e5e0042e886bd86097be3a8196552ca10c086c542e9ba
-        sourceBlobDigest: sha256:10f676ba0273b1963eb534fd338556cdadf9d732c2dadb84a59aecca0a02a64a
+        sourceRevisionDigest: sha256:de87d9e76fdbcf2e9ced3d4b20e96650a801a799e83aaa53302369099ad6ee4b
+        sourceBlobDigest: sha256:62b81ed020849df389d5f2316b33458df4951c555203dec860e845886e893287
         codeSamplesNamespace: screenshothis-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:14f327d9fb9515acd5b730196ba87b12d77b49a26b6c2f92011c811c2f0e3d2c
+        codeSamplesRevisionDigest: sha256:8a1ba9369b5b45d7efc7d89334fdfd44946b00bba79ed02834cc2f09638419a3
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -32,6 +32,9 @@ workflow:
         screenshothis:
             target: typescript
             source: Screenshothis API
+            publish:
+                npm:
+                    token: $npm_token
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api-typescript-code-samples

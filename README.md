@@ -426,7 +426,7 @@ run();
 **Inherit from [`ScreenshothisError`](./src/models/errors/screenshothiserror.ts)**:
 * [`ForbiddenError`](docs/models/errors/forbiddenerror.md): Quota exceeded. Status code `403`. Applicable to 1 of 4 methods.*
 * [`InternalServerError`](docs/models/errors/internalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 4 methods.*
-* [`HealthCheckError`](docs/models/errors/healthcheckerror.md): Health check passed. Status code `503`. Applicable to 1 of 4 methods.*
+* [`HealthCheckError`](docs/models/errors/healthcheckerror.md): Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems. Status code `503`. Applicable to 1 of 4 methods.*
 * [`NotReadyError`](docs/models/errors/notreadyerror.md): Service is not ready. Status code `503`. Applicable to 1 of 4 methods.*
 * [`NotAliveError`](docs/models/errors/notaliveerror.md): Service is not alive. Status code `503`. Applicable to 1 of 4 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 8d1d721b-b170-463d-8b55-01615eec3d7c
 management:
-  docChecksum: 6994fe15174d07430cbcbfbb04c7b716
+  docChecksum: 5dffc7caa2ec1b63a304bc2237626947
   docVersion: 1.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 1.1.0
-  configChecksum: 14eb90d375f0fd765b43dcf1e090dd3a
+  releaseVersion: 1.1.1
+  configChecksum: 528bbc3346b1f3d7728fc8ed11a5cd9a
   repoURL: https://github.com/screenshothis/screenshothis-js.git
   installationURL: https://github.com/screenshothis/screenshothis-js
   published: true
@@ -51,16 +51,16 @@ generatedFiles:
   - docs/models/healthcheck.md
   - docs/models/operations/blockresource.md
   - docs/models/operations/format.md
-  - docs/models/operations/gethealthliveresponse.md
-  - docs/models/operations/gethealthreadyresponse.md
-  - docs/models/operations/getv1screenshotstakerequest.md
-  - docs/models/operations/getv1screenshotstakeresponse.md
+  - docs/models/operations/liveresponse.md
   - docs/models/operations/preferscolorscheme.md
   - docs/models/operations/prefersreducedmotion.md
+  - docs/models/operations/readyresponse.md
+  - docs/models/operations/readystatus.md
   - docs/models/operations/statusalive.md
   - docs/models/operations/statusnotalive.md
   - docs/models/operations/statusnotready.md
-  - docs/models/operations/statusready.md
+  - docs/models/operations/takescreenshotrequest.md
+  - docs/models/operations/takescreenshotresponse.md
   - docs/models/status.md
   - docs/sdks/health/README.md
   - docs/sdks/screenshothis/README.md
@@ -110,22 +110,22 @@ generatedFiles:
   - src/mcp-server/tools/healthGetLive.ts
   - src/mcp-server/tools/healthGetReady.ts
   - src/mcp-server/tools/screenshotsTake.ts
-  - src/models/errors/gethealthlive.ts
-  - src/models/errors/gethealthready.ts
-  - src/models/errors/getv1screenshotstake.ts
   - src/models/errors/healthcheckerror.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
+  - src/models/errors/live.ts
+  - src/models/errors/ready.ts
   - src/models/errors/responsevalidationerror.ts
   - src/models/errors/screenshothisdefaulterror.ts
   - src/models/errors/screenshothiserror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/takescreenshot.ts
   - src/models/healthcheck.ts
   - src/models/index.ts
-  - src/models/operations/gethealthlive.ts
-  - src/models/operations/gethealthready.ts
-  - src/models/operations/getv1screenshotstake.ts
   - src/models/operations/index.ts
+  - src/models/operations/live.ts
+  - src/models/operations/ready.ts
+  - src/models/operations/takescreenshot.ts
   - src/sdk/health.ts
   - src/sdk/index.ts
   - src/sdk/screenshots.ts
@@ -194,6 +194,64 @@ examples:
           application/json: {"status": "not ready", "timestamp": "<value>", "error": "<value>"}
   get_/health/live:
     speakeasy-default-get-/health/live:
+      responses:
+        "200":
+          application/json: {"status": "alive", "timestamp": "<value>"}
+        "503":
+          application/json: {"status": "not alive", "timestamp": "<value>", "error": "<value>"}
+  takeScreenshot:
+    speakeasy-default-take-screenshot:
+      parameters:
+        query:
+          api_key: "sk_live_abcdef1234567890abcdef1234567890"
+          url: "https://example.com"
+          selector: ".main-content"
+          width: 1920
+          height: 1080
+          is_mobile: false
+          is_landscape: false
+          has_touch: false
+          device_scale_factor: 1
+          format: "jpeg"
+          quality: 80
+          block_ads: false
+          block_cookie_banners: false
+          block_trackers: false
+          block_requests: "*.doubleclick.net\n*.googletagmanager.com\n*/analytics/*"
+          block_resources: ["script", "stylesheet", "font"]
+          prefers_color_scheme: "light"
+          prefers_reduced_motion: "no-preference"
+          is_cached: false
+          cache_ttl: 3600
+          cache_key: "homepage-desktop-light"
+          headers: "User-Agent: MyBot/1.0\nAuthorization: Bearer token123\nX-Custom-Header: value"
+          cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\nuser_pref=dark_mode; Max-Age=3600"
+          bypass_csp: false
+      responses:
+        "200":
+          image/jpeg: "<binary JPEG image data>"
+          image/png: "<binary PNG image data>"
+          image/webp: "<binary WebP image data>"
+        "403":
+          application/json: {"error": "<value>", "requestId": "<id>"}
+        "500":
+          application/json: {"requestId": "<id>", "message": "<value>", "code": "<value>"}
+  health:
+    speakeasy-default-health:
+      responses:
+        "200":
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+        "503":
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+  ready:
+    speakeasy-default-ready:
+      responses:
+        "200":
+          application/json: {"status": "ready", "timestamp": "<value>"}
+        "503":
+          application/json: {"status": "not ready", "timestamp": "<value>", "error": "<value>"}
+  live:
+    speakeasy-default-live:
       responses:
         "200":
           application/json: {"status": "alive", "timestamp": "<value>"}

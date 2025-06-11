@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.GetV1ScreenshotsTakeRequest$inboundSchema,
+  request: operations.TakeScreenshotRequest$inboundSchema,
 };
 
 export const tool$screenshotsTake: ToolDefinition<typeof args> = {

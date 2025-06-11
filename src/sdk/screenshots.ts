@@ -17,9 +17,9 @@ export class Screenshots extends ClientSDK {
    * Captures high-quality screenshots of websites with advanced optimization features including smart caching, CDN integration, request deduplication, and quota management. Supports multiple image formats (JPEG, PNG, WebP) with customizable dimensions, device emulation, and viewport settings. Implements efficient S3 streaming for large images and conditional requests for optimal performance.
    */
   async take(
-    request: operations.GetV1ScreenshotsTakeRequest,
+    request: operations.TakeScreenshotRequest,
     options?: RequestOptions & { acceptHeaderOverride?: TakeAcceptEnum },
-  ): Promise<operations.GetV1ScreenshotsTakeResponse | undefined> {
+  ): Promise<operations.TakeScreenshotResponse | undefined> {
     return unwrapAsync(screenshotsTake(
       this,
       request,

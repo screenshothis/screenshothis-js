@@ -1,11 +1,11 @@
-# GetV1ScreenshotsTakeRequest
+# TakeScreenshotRequest
 
 ## Example Usage
 
 ```typescript
-import { GetV1ScreenshotsTakeRequest } from "@screenshothis/sdk/models/operations";
+import { TakeScreenshotRequest } from "@screenshothis/sdk/models/operations";
 
-let value: GetV1ScreenshotsTakeRequest = {
+let value: TakeScreenshotRequest = {
   apiKey: "sk_live_abcdef1234567890abcdef1234567890",
   url: "https://example.com",
   selector: ".main-content",

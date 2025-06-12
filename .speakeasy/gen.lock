@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 8d1d721b-b170-463d-8b55-01615eec3d7c
 management:
-  docChecksum: 5dffc7caa2ec1b63a304bc2237626947
+  docChecksum: d4c9eef6d5c1cee2763dc84e9b25dcda
   docVersion: 1.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 1.1.1
-  configChecksum: 528bbc3346b1f3d7728fc8ed11a5cd9a
+  releaseVersion: 1.1.2
+  configChecksum: 37ee65071909f3cb35dd9b6a71613657
   repoURL: https://github.com/screenshothis/screenshothis-js.git
   installationURL: https://github.com/screenshothis/screenshothis-js
   published: true
@@ -240,9 +240,9 @@ examples:
     speakeasy-default-health:
       responses:
         "200":
-          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 12}, {"name": "storage", "status": "pass", "duration": 25}, {"name": "queue", "status": "pass", "duration": 8, "details": {"waiting": 2, "active": 1, "completed": 1543, "failed": 0, "workerRunning": true}}, {"name": "s3", "status": "pass", "duration": 156}], "version": "1.0.0"}
         "503":
-          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 12}, {"name": "storage", "status": "pass", "duration": 25}, {"name": "queue", "status": "pass", "duration": 8, "details": {"waiting": 2, "active": 1, "completed": 1543, "failed": 0, "workerRunning": true}}, {"name": "s3", "status": "pass", "duration": 156}], "version": "1.0.0"}
   ready:
     speakeasy-default-ready:
       responses:

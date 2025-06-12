@@ -8,19 +8,27 @@ sources:
             - latest
             - speakeasy-sdk-regen-1749674215
             - 1.0.0
+    Screenshothis-OAS:
+        sourceNamespace: screenshothis-oas
+        sourceRevisionDigest: sha256:b9eb64afa112dce6c507cbc0be92696f8ec115cbba98209e1f238f3bbbe07ff7
+        sourceBlobDigest: sha256:2e5d8737ae627c29a99cb89d44d220b3da316eeceb133445d465550125807e74
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1749758941
+            - 1.0.0
 targets:
     screenshothis:
-        source: Screenshothis API
-        sourceNamespace: screenshothis-api
-        sourceRevisionDigest: sha256:eabc582ad10512d28531a91c6569a72aab46c94459a3e36d45cba4a311b67cc1
-        sourceBlobDigest: sha256:77a3316cfdbedfa157a50046f7d4ecd30df063e5e92518ade901b46b39a13633
-        codeSamplesNamespace: screenshothis-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:babad9b7acb9e58012d9ad3ee2db9c39d17b7bdf7575b5c01b4099a0696a16bc
+        source: Screenshothis-OAS
+        sourceNamespace: screenshothis-oas
+        sourceRevisionDigest: sha256:b9eb64afa112dce6c507cbc0be92696f8ec115cbba98209e1f238f3bbbe07ff7
+        sourceBlobDigest: sha256:2e5d8737ae627c29a99cb89d44d220b3da316eeceb133445d465550125807e74
+        codeSamplesNamespace: screenshothis-oas-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:480675b349d7c72d3aa8f0b2c8646f7499c1ac728c6edbbdcc1979c6e3b8f2b6
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
-        Screenshothis API:
+        Screenshothis-OAS:
             inputs:
                 - location: https://api.screenshothis.com/openapi
             overlays:
@@ -28,17 +36,17 @@ workflow:
             transformations:
                 - removeUnused: true
             registry:
-                location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api
+                location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas
     targets:
         screenshothis:
             target: typescript
-            source: Screenshothis API
+            source: Screenshothis-OAS
             publish:
                 npm:
                     token: $npm_token
             codeSamples:
                 output: codeSamples.yaml
                 registry:
-                    location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api-typescript-code-samples
+                    location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas-typescript-code-samples
                 labelOverride:
                     fixedValue: Typescript (SDK)

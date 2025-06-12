@@ -15,7 +15,29 @@ let value: HealthCheck = {
     {
       name: "database",
       status: "pass",
-      duration: 10,
+      duration: 12,
+    },
+    {
+      name: "storage",
+      status: "pass",
+      duration: 25,
+    },
+    {
+      name: "queue",
+      status: "pass",
+      duration: 8,
+      details: {
+        "waiting": 2,
+        "active": 1,
+        "completed": 1543,
+        "failed": 0,
+        "workerRunning": true,
+      },
+    },
+    {
+      name: "s3",
+      status: "pass",
+      duration: 156,
     },
   ],
   version: "1.0.0",

@@ -34,7 +34,7 @@ export class Health extends ClientSDK {
    */
   async getReady(
     options?: RequestOptions,
-  ): Promise<operations.GetHealthReadyResponse> {
+  ): Promise<operations.ReadyResponse> {
     return unwrapAsync(healthGetReady(
       this,
       options,
@@ -49,7 +49,7 @@ export class Health extends ClientSDK {
    */
   async getLive(
     options?: RequestOptions,
-  ): Promise<operations.GetHealthLiveResponse> {
+  ): Promise<operations.LiveResponse> {
     return unwrapAsync(healthGetLive(
       this,
       options,

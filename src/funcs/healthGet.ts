@@ -80,7 +80,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_/health",
+    operationID: "health",
     oAuth2Scopes: [],
 
     resolvedSecurity: null,

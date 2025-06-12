@@ -128,7 +128,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.GetHealthReadyResponse](../../models/operations/gethealthreadyresponse.md)\>**
+**Promise\<[operations.ReadyResponse](../../models/operations/readyresponse.md)\>**
 
 ### Errors
 
@@ -192,7 +192,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.GetHealthLiveResponse](../../models/operations/gethealthliveresponse.md)\>**
+**Promise\<[operations.LiveResponse](../../models/operations/liveresponse.md)\>**
 
 ### Errors
 

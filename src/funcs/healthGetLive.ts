@@ -33,7 +33,7 @@ export function healthGetLive(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetHealthLiveResponse,
+    operations.LiveResponse,
     | errors.NotAliveError
     | ScreenshothisError
     | ResponseValidationError
@@ -57,7 +57,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.GetHealthLiveResponse,
+      operations.LiveResponse,
       | errors.NotAliveError
       | ScreenshothisError
       | ResponseValidationError
@@ -80,7 +80,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_/health/live",
+    operationID: "live",
     oAuth2Scopes: [],
 
     resolvedSecurity: null,
@@ -131,7 +131,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.GetHealthLiveResponse,
+    operations.LiveResponse,
     | errors.NotAliveError
     | ScreenshothisError
     | ResponseValidationError
@@ -142,7 +142,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetHealthLiveResponse$inboundSchema),
+    M.json(200, operations.LiveResponse$inboundSchema),
     M.jsonErr(503, errors.NotAliveError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

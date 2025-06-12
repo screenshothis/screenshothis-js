@@ -21,7 +21,7 @@ export type StatusAlive = ClosedEnum<typeof StatusAlive>;
 /**
  * Service is alive
  */
-export type GetHealthLiveResponse = {
+export type LiveResponse = {
   status: StatusAlive;
   timestamp: string;
 };
@@ -67,8 +67,8 @@ export namespace StatusAlive$ {
 }
 
 /** @internal */
-export const GetHealthLiveResponse$inboundSchema: z.ZodType<
-  GetHealthLiveResponse,
+export const LiveResponse$inboundSchema: z.ZodType<
+  LiveResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -77,16 +77,16 @@ export const GetHealthLiveResponse$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetHealthLiveResponse$Outbound = {
+export type LiveResponse$Outbound = {
   status: string;
   timestamp: string;
 };
 
 /** @internal */
-export const GetHealthLiveResponse$outboundSchema: z.ZodType<
-  GetHealthLiveResponse$Outbound,
+export const LiveResponse$outboundSchema: z.ZodType<
+  LiveResponse$Outbound,
   z.ZodTypeDef,
-  GetHealthLiveResponse
+  LiveResponse
 > = z.object({
   status: StatusAlive$outboundSchema,
   timestamp: z.string(),
@@ -96,29 +96,25 @@ export const GetHealthLiveResponse$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetHealthLiveResponse$ {
-  /** @deprecated use `GetHealthLiveResponse$inboundSchema` instead. */
-  export const inboundSchema = GetHealthLiveResponse$inboundSchema;
-  /** @deprecated use `GetHealthLiveResponse$outboundSchema` instead. */
-  export const outboundSchema = GetHealthLiveResponse$outboundSchema;
-  /** @deprecated use `GetHealthLiveResponse$Outbound` instead. */
-  export type Outbound = GetHealthLiveResponse$Outbound;
+export namespace LiveResponse$ {
+  /** @deprecated use `LiveResponse$inboundSchema` instead. */
+  export const inboundSchema = LiveResponse$inboundSchema;
+  /** @deprecated use `LiveResponse$outboundSchema` instead. */
+  export const outboundSchema = LiveResponse$outboundSchema;
+  /** @deprecated use `LiveResponse$Outbound` instead. */
+  export type Outbound = LiveResponse$Outbound;
 }
 
-export function getHealthLiveResponseToJSON(
-  getHealthLiveResponse: GetHealthLiveResponse,
-): string {
-  return JSON.stringify(
-    GetHealthLiveResponse$outboundSchema.parse(getHealthLiveResponse),
-  );
+export function liveResponseToJSON(liveResponse: LiveResponse): string {
+  return JSON.stringify(LiveResponse$outboundSchema.parse(liveResponse));
 }
 
-export function getHealthLiveResponseFromJSON(
+export function liveResponseFromJSON(
   jsonString: string,
-): SafeParseResult<GetHealthLiveResponse, SDKValidationError> {
+): SafeParseResult<LiveResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetHealthLiveResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetHealthLiveResponse' from JSON`,
+    (x) => LiveResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LiveResponse' from JSON`,
   );
 }

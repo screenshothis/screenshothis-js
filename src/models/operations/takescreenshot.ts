@@ -74,7 +74,7 @@ export const PrefersReducedMotion = {
  */
 export type PrefersReducedMotion = ClosedEnum<typeof PrefersReducedMotion>;
 
-export type GetV1ScreenshotsTakeRequest = {
+export type TakeScreenshotRequest = {
   apiKey: string;
   url: string;
   selector?: string | null | undefined;
@@ -110,7 +110,7 @@ export type GetV1ScreenshotsTakeRequest = {
   bypassCsp?: boolean | null | undefined;
 };
 
-export type GetV1ScreenshotsTakeResponse =
+export type TakeScreenshotResponse =
   | ReadableStream<Uint8Array>
   | ReadableStream<Uint8Array>
   | ReadableStream<Uint8Array>;
@@ -198,8 +198,8 @@ export namespace PrefersReducedMotion$ {
 }
 
 /** @internal */
-export const GetV1ScreenshotsTakeRequest$inboundSchema: z.ZodType<
-  GetV1ScreenshotsTakeRequest,
+export const TakeScreenshotRequest$inboundSchema: z.ZodType<
+  TakeScreenshotRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -251,7 +251,7 @@ export const GetV1ScreenshotsTakeRequest$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetV1ScreenshotsTakeRequest$Outbound = {
+export type TakeScreenshotRequest$Outbound = {
   api_key: string;
   url: string;
   selector?: string | null | undefined;
@@ -279,10 +279,10 @@ export type GetV1ScreenshotsTakeRequest$Outbound = {
 };
 
 /** @internal */
-export const GetV1ScreenshotsTakeRequest$outboundSchema: z.ZodType<
-  GetV1ScreenshotsTakeRequest$Outbound,
+export const TakeScreenshotRequest$outboundSchema: z.ZodType<
+  TakeScreenshotRequest$Outbound,
   z.ZodTypeDef,
-  GetV1ScreenshotsTakeRequest
+  TakeScreenshotRequest
 > = z.object({
   apiKey: z.string(),
   url: z.string(),
@@ -335,38 +335,36 @@ export const GetV1ScreenshotsTakeRequest$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetV1ScreenshotsTakeRequest$ {
-  /** @deprecated use `GetV1ScreenshotsTakeRequest$inboundSchema` instead. */
-  export const inboundSchema = GetV1ScreenshotsTakeRequest$inboundSchema;
-  /** @deprecated use `GetV1ScreenshotsTakeRequest$outboundSchema` instead. */
-  export const outboundSchema = GetV1ScreenshotsTakeRequest$outboundSchema;
-  /** @deprecated use `GetV1ScreenshotsTakeRequest$Outbound` instead. */
-  export type Outbound = GetV1ScreenshotsTakeRequest$Outbound;
+export namespace TakeScreenshotRequest$ {
+  /** @deprecated use `TakeScreenshotRequest$inboundSchema` instead. */
+  export const inboundSchema = TakeScreenshotRequest$inboundSchema;
+  /** @deprecated use `TakeScreenshotRequest$outboundSchema` instead. */
+  export const outboundSchema = TakeScreenshotRequest$outboundSchema;
+  /** @deprecated use `TakeScreenshotRequest$Outbound` instead. */
+  export type Outbound = TakeScreenshotRequest$Outbound;
 }
 
-export function getV1ScreenshotsTakeRequestToJSON(
-  getV1ScreenshotsTakeRequest: GetV1ScreenshotsTakeRequest,
+export function takeScreenshotRequestToJSON(
+  takeScreenshotRequest: TakeScreenshotRequest,
 ): string {
   return JSON.stringify(
-    GetV1ScreenshotsTakeRequest$outboundSchema.parse(
-      getV1ScreenshotsTakeRequest,
-    ),
+    TakeScreenshotRequest$outboundSchema.parse(takeScreenshotRequest),
   );
 }
 
-export function getV1ScreenshotsTakeRequestFromJSON(
+export function takeScreenshotRequestFromJSON(
   jsonString: string,
-): SafeParseResult<GetV1ScreenshotsTakeRequest, SDKValidationError> {
+): SafeParseResult<TakeScreenshotRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetV1ScreenshotsTakeRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetV1ScreenshotsTakeRequest' from JSON`,
+    (x) => TakeScreenshotRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TakeScreenshotRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const GetV1ScreenshotsTakeResponse$inboundSchema: z.ZodType<
-  GetV1ScreenshotsTakeResponse,
+export const TakeScreenshotResponse$inboundSchema: z.ZodType<
+  TakeScreenshotResponse,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -376,16 +374,16 @@ export const GetV1ScreenshotsTakeResponse$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type GetV1ScreenshotsTakeResponse$Outbound =
+export type TakeScreenshotResponse$Outbound =
   | ReadableStream<Uint8Array>
   | ReadableStream<Uint8Array>
   | ReadableStream<Uint8Array>;
 
 /** @internal */
-export const GetV1ScreenshotsTakeResponse$outboundSchema: z.ZodType<
-  GetV1ScreenshotsTakeResponse$Outbound,
+export const TakeScreenshotResponse$outboundSchema: z.ZodType<
+  TakeScreenshotResponse$Outbound,
   z.ZodTypeDef,
-  GetV1ScreenshotsTakeResponse
+  TakeScreenshotResponse
 > = z.union([
   z.instanceof(ReadableStream<Uint8Array>),
   z.instanceof(ReadableStream<Uint8Array>),
@@ -396,31 +394,29 @@ export const GetV1ScreenshotsTakeResponse$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetV1ScreenshotsTakeResponse$ {
-  /** @deprecated use `GetV1ScreenshotsTakeResponse$inboundSchema` instead. */
-  export const inboundSchema = GetV1ScreenshotsTakeResponse$inboundSchema;
-  /** @deprecated use `GetV1ScreenshotsTakeResponse$outboundSchema` instead. */
-  export const outboundSchema = GetV1ScreenshotsTakeResponse$outboundSchema;
-  /** @deprecated use `GetV1ScreenshotsTakeResponse$Outbound` instead. */
-  export type Outbound = GetV1ScreenshotsTakeResponse$Outbound;
+export namespace TakeScreenshotResponse$ {
+  /** @deprecated use `TakeScreenshotResponse$inboundSchema` instead. */
+  export const inboundSchema = TakeScreenshotResponse$inboundSchema;
+  /** @deprecated use `TakeScreenshotResponse$outboundSchema` instead. */
+  export const outboundSchema = TakeScreenshotResponse$outboundSchema;
+  /** @deprecated use `TakeScreenshotResponse$Outbound` instead. */
+  export type Outbound = TakeScreenshotResponse$Outbound;
 }
 
-export function getV1ScreenshotsTakeResponseToJSON(
-  getV1ScreenshotsTakeResponse: GetV1ScreenshotsTakeResponse,
+export function takeScreenshotResponseToJSON(
+  takeScreenshotResponse: TakeScreenshotResponse,
 ): string {
   return JSON.stringify(
-    GetV1ScreenshotsTakeResponse$outboundSchema.parse(
-      getV1ScreenshotsTakeResponse,
-    ),
+    TakeScreenshotResponse$outboundSchema.parse(takeScreenshotResponse),
   );
 }
 
-export function getV1ScreenshotsTakeResponseFromJSON(
+export function takeScreenshotResponseFromJSON(
   jsonString: string,
-): SafeParseResult<GetV1ScreenshotsTakeResponse, SDKValidationError> {
+): SafeParseResult<TakeScreenshotResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetV1ScreenshotsTakeResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetV1ScreenshotsTakeResponse' from JSON`,
+    (x) => TakeScreenshotResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TakeScreenshotResponse' from JSON`,
   );
 }

@@ -33,7 +33,7 @@ export function healthGetReady(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetHealthReadyResponse,
+    operations.ReadyResponse,
     | errors.NotReadyError
     | ScreenshothisError
     | ResponseValidationError
@@ -57,7 +57,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.GetHealthReadyResponse,
+      operations.ReadyResponse,
       | errors.NotReadyError
       | ScreenshothisError
       | ResponseValidationError
@@ -80,7 +80,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_/health/ready",
+    operationID: "ready",
     oAuth2Scopes: [],
 
     resolvedSecurity: null,
@@ -131,7 +131,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.GetHealthReadyResponse,
+    operations.ReadyResponse,
     | errors.NotReadyError
     | ScreenshothisError
     | ResponseValidationError
@@ -142,7 +142,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetHealthReadyResponse$inboundSchema),
+    M.json(200, operations.ReadyResponse$inboundSchema),
     M.jsonErr(503, errors.NotReadyError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

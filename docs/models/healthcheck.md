@@ -1,15 +1,23 @@
 # HealthCheck
 
+Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems.
+
 ## Example Usage
 
 ```typescript
 import { HealthCheck } from "@screenshothis/sdk";
 
 let value: HealthCheck = {
-  status: "unhealthy",
-  timestamp: "<value>",
-  uptime: 6855.11,
-  checks: [],
+  status: "healthy",
+  timestamp: "2024-01-01T00:00:00.000Z",
+  uptime: 3600,
+  checks: [
+    {
+      name: "database",
+      status: "pass",
+      duration: 10,
+    },
+  ],
   version: "1.0.0",
 };
 ```

@@ -6,6 +6,9 @@ import * as z from "zod";
 import * as models from "../index.js";
 import { ScreenshothisError } from "./screenshothiserror.js";
 
+/**
+ * Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems.
+ */
 export type HealthCheckErrorData = {
   /**
    * Overall health status of the system
@@ -29,6 +32,9 @@ export type HealthCheckErrorData = {
   version?: string | undefined;
 };
 
+/**
+ * Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems.
+ */
 export class HealthCheckError extends ScreenshothisError {
   /**
    * Overall health status of the system

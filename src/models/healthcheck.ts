@@ -56,6 +56,9 @@ export type Check = {
   error?: string | undefined;
 };
 
+/**
+ * Performs a comprehensive health check of all critical system components including database connectivity, storage availability, job queue status, and S3 functionality. Returns detailed status information for monitoring and alerting systems.
+ */
 export type HealthCheck = {
   /**
    * Overall health status of the system

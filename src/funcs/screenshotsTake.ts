@@ -38,11 +38,11 @@ export enum TakeAcceptEnum {
  */
 export function screenshotsTake(
   client: ScreenshothisCore,
-  request: operations.GetV1ScreenshotsTakeRequest,
+  request: operations.TakeScreenshotRequest,
   options?: RequestOptions & { acceptHeaderOverride?: TakeAcceptEnum },
 ): APIPromise<
   Result<
-    operations.GetV1ScreenshotsTakeResponse | undefined,
+    operations.TakeScreenshotResponse | undefined,
     | errors.ForbiddenError
     | errors.InternalServerError
     | ScreenshothisError
@@ -64,12 +64,12 @@ export function screenshotsTake(
 
 async function $do(
   client: ScreenshothisCore,
-  request: operations.GetV1ScreenshotsTakeRequest,
+  request: operations.TakeScreenshotRequest,
   options?: RequestOptions & { acceptHeaderOverride?: TakeAcceptEnum },
 ): Promise<
   [
     Result<
-      operations.GetV1ScreenshotsTakeResponse | undefined,
+      operations.TakeScreenshotResponse | undefined,
       | errors.ForbiddenError
       | errors.InternalServerError
       | ScreenshothisError
@@ -86,8 +86,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.GetV1ScreenshotsTakeRequest$outboundSchema.parse(value),
+    (value) => operations.TakeScreenshotRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -133,7 +132,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_/v1/screenshots/take",
+    operationID: "takeScreenshot",
     oAuth2Scopes: [],
 
     resolvedSecurity: null,
@@ -186,7 +185,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.GetV1ScreenshotsTakeResponse | undefined,
+    operations.TakeScreenshotResponse | undefined,
     | errors.ForbiddenError
     | errors.InternalServerError
     | ScreenshothisError
@@ -198,25 +197,16 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.stream(
-      200,
-      operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
-      { ctype: "image/jpeg" },
-    ),
-    M.stream(
-      200,
-      operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
-      { ctype: "image/png" },
-    ),
-    M.stream(
-      200,
-      operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
-      { ctype: "image/webp" },
-    ),
-    M.nil(
-      304,
-      operations.GetV1ScreenshotsTakeResponse$inboundSchema.optional(),
-    ),
+    M.stream(200, operations.TakeScreenshotResponse$inboundSchema.optional(), {
+      ctype: "image/jpeg",
+    }),
+    M.stream(200, operations.TakeScreenshotResponse$inboundSchema.optional(), {
+      ctype: "image/png",
+    }),
+    M.stream(200, operations.TakeScreenshotResponse$inboundSchema.optional(), {
+      ctype: "image/webp",
+    }),
+    M.nil(304, operations.TakeScreenshotResponse$inboundSchema.optional()),
     M.jsonErr(403, errors.ForbiddenError$inboundSchema),
     M.jsonErr(500, errors.InternalServerError$inboundSchema),
     M.fail("4XX"),

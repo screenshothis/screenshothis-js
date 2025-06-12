@@ -13,16 +13,16 @@ export const StatusNotReady = {
 } as const;
 export type StatusNotReady = ClosedEnum<typeof StatusNotReady>;
 
-export const StatusReady = {
+export const ReadyStatus = {
   Ready: "ready",
 } as const;
-export type StatusReady = ClosedEnum<typeof StatusReady>;
+export type ReadyStatus = ClosedEnum<typeof ReadyStatus>;
 
 /**
  * Service is ready
  */
-export type GetHealthReadyResponse = {
-  status: StatusReady;
+export type ReadyResponse = {
+  status: ReadyStatus;
   timestamp: string;
 };
 
@@ -48,47 +48,47 @@ export namespace StatusNotReady$ {
 }
 
 /** @internal */
-export const StatusReady$inboundSchema: z.ZodNativeEnum<typeof StatusReady> = z
-  .nativeEnum(StatusReady);
+export const ReadyStatus$inboundSchema: z.ZodNativeEnum<typeof ReadyStatus> = z
+  .nativeEnum(ReadyStatus);
 
 /** @internal */
-export const StatusReady$outboundSchema: z.ZodNativeEnum<typeof StatusReady> =
-  StatusReady$inboundSchema;
+export const ReadyStatus$outboundSchema: z.ZodNativeEnum<typeof ReadyStatus> =
+  ReadyStatus$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace StatusReady$ {
-  /** @deprecated use `StatusReady$inboundSchema` instead. */
-  export const inboundSchema = StatusReady$inboundSchema;
-  /** @deprecated use `StatusReady$outboundSchema` instead. */
-  export const outboundSchema = StatusReady$outboundSchema;
+export namespace ReadyStatus$ {
+  /** @deprecated use `ReadyStatus$inboundSchema` instead. */
+  export const inboundSchema = ReadyStatus$inboundSchema;
+  /** @deprecated use `ReadyStatus$outboundSchema` instead. */
+  export const outboundSchema = ReadyStatus$outboundSchema;
 }
 
 /** @internal */
-export const GetHealthReadyResponse$inboundSchema: z.ZodType<
-  GetHealthReadyResponse,
+export const ReadyResponse$inboundSchema: z.ZodType<
+  ReadyResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  status: StatusReady$inboundSchema,
+  status: ReadyStatus$inboundSchema,
   timestamp: z.string(),
 });
 
 /** @internal */
-export type GetHealthReadyResponse$Outbound = {
+export type ReadyResponse$Outbound = {
   status: string;
   timestamp: string;
 };
 
 /** @internal */
-export const GetHealthReadyResponse$outboundSchema: z.ZodType<
-  GetHealthReadyResponse$Outbound,
+export const ReadyResponse$outboundSchema: z.ZodType<
+  ReadyResponse$Outbound,
   z.ZodTypeDef,
-  GetHealthReadyResponse
+  ReadyResponse
 > = z.object({
-  status: StatusReady$outboundSchema,
+  status: ReadyStatus$outboundSchema,
   timestamp: z.string(),
 });
 
@@ -96,29 +96,25 @@ export const GetHealthReadyResponse$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetHealthReadyResponse$ {
-  /** @deprecated use `GetHealthReadyResponse$inboundSchema` instead. */
-  export const inboundSchema = GetHealthReadyResponse$inboundSchema;
-  /** @deprecated use `GetHealthReadyResponse$outboundSchema` instead. */
-  export const outboundSchema = GetHealthReadyResponse$outboundSchema;
-  /** @deprecated use `GetHealthReadyResponse$Outbound` instead. */
-  export type Outbound = GetHealthReadyResponse$Outbound;
+export namespace ReadyResponse$ {
+  /** @deprecated use `ReadyResponse$inboundSchema` instead. */
+  export const inboundSchema = ReadyResponse$inboundSchema;
+  /** @deprecated use `ReadyResponse$outboundSchema` instead. */
+  export const outboundSchema = ReadyResponse$outboundSchema;
+  /** @deprecated use `ReadyResponse$Outbound` instead. */
+  export type Outbound = ReadyResponse$Outbound;
 }
 
-export function getHealthReadyResponseToJSON(
-  getHealthReadyResponse: GetHealthReadyResponse,
-): string {
-  return JSON.stringify(
-    GetHealthReadyResponse$outboundSchema.parse(getHealthReadyResponse),
-  );
+export function readyResponseToJSON(readyResponse: ReadyResponse): string {
+  return JSON.stringify(ReadyResponse$outboundSchema.parse(readyResponse));
 }
 
-export function getHealthReadyResponseFromJSON(
+export function readyResponseFromJSON(
   jsonString: string,
-): SafeParseResult<GetHealthReadyResponse, SDKValidationError> {
+): SafeParseResult<ReadyResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetHealthReadyResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetHealthReadyResponse' from JSON`,
+    (x) => ReadyResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReadyResponse' from JSON`,
   );
 }

@@ -1,14 +1,14 @@
-# GetHealthReadyResponse
+# LiveResponse
 
-Service is ready
+Service is alive
 
 ## Example Usage
 
 ```typescript
-import { GetHealthReadyResponse } from "@screenshothis/sdk/models/operations";
+import { LiveResponse } from "@screenshothis/sdk/models/operations";
 
-let value: GetHealthReadyResponse = {
-  status: "ready",
+let value: LiveResponse = {
+  status: "alive",
   timestamp: "<value>",
 };
 ```
@@ -17,5 +17,5 @@ let value: GetHealthReadyResponse = {
 
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `status`                                                         | [operations.StatusReady](../../models/operations/statusready.md) | :heavy_check_mark:                                               | N/A                                                              |
+| `status`                                                         | [operations.StatusAlive](../../models/operations/statusalive.md) | :heavy_check_mark:                                               | N/A                                                              |
 | `timestamp`                                                      | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |

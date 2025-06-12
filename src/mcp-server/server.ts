@@ -27,7 +27,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Screenshothis",
-    version: "1.1.2",
+    version: "1.1.3",
   });
 
   const client = new ScreenshothisCore({

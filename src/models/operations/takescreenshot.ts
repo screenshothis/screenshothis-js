@@ -80,18 +80,21 @@ export type TakeScreenshotRequest = {
   selector?: string | null | undefined;
   width?: number | null | undefined;
   height?: number | null | undefined;
-  isMobile?: boolean | null | undefined;
-  isLandscape?: boolean | null | undefined;
-  hasTouch?: boolean | null | undefined;
+  isMobile?: boolean | undefined;
+  isLandscape?: boolean | undefined;
+  hasTouch?: boolean | undefined;
   deviceScaleFactor?: number | null | undefined;
+  fullPage?: boolean | undefined;
+  fullPageScroll?: boolean | undefined;
+  fullPageScrollDuration?: number | null | undefined;
   /**
    * Output image format. JPEG offers smaller file sizes, PNG supports transparency, WebP provides modern compression.
    */
   format?: Format | undefined;
   quality?: number | undefined;
-  blockAds?: boolean | null | undefined;
-  blockCookieBanners?: boolean | null | undefined;
-  blockTrackers?: boolean | null | undefined;
+  blockAds?: boolean | undefined;
+  blockCookieBanners?: boolean | undefined;
+  blockTrackers?: boolean | undefined;
   blockRequests?: string | undefined;
   blockResources?: Array<BlockResource> | undefined;
   /**
@@ -102,12 +105,13 @@ export type TakeScreenshotRequest = {
    * Accessibility setting to reduce animations and transitions for motion-sensitive users
    */
   prefersReducedMotion?: PrefersReducedMotion | undefined;
-  isCached?: boolean | null | undefined;
+  isCached?: boolean | undefined;
   cacheTtl?: number | undefined;
   cacheKey?: string | undefined;
+  userAgent?: string | undefined;
   headers?: string | undefined;
   cookies?: string | undefined;
-  bypassCsp?: boolean | null | undefined;
+  bypassCsp?: boolean | undefined;
 };
 
 export type TakeScreenshotResponse =
@@ -208,27 +212,31 @@ export const TakeScreenshotRequest$inboundSchema: z.ZodType<
   selector: z.nullable(z.string()).optional(),
   width: z.nullable(z.number().default(1920)),
   height: z.nullable(z.number().default(1080)),
-  is_mobile: z.nullable(z.boolean().default(false)),
-  is_landscape: z.nullable(z.boolean().default(false)),
-  has_touch: z.nullable(z.boolean().default(false)),
+  is_mobile: z.boolean().default(false),
+  is_landscape: z.boolean().default(false),
+  has_touch: z.boolean().default(false),
   device_scale_factor: z.nullable(z.number().default(1)),
+  full_page: z.boolean().default(false),
+  full_page_scroll: z.boolean().default(true),
+  full_page_scroll_duration: z.nullable(z.number().default(400)),
   format: Format$inboundSchema.default("jpeg"),
   quality: z.number().default(80),
-  block_ads: z.nullable(z.boolean().default(false)),
-  block_cookie_banners: z.nullable(z.boolean().default(false)),
-  block_trackers: z.nullable(z.boolean().default(false)),
+  block_ads: z.boolean().default(false),
+  block_cookie_banners: z.boolean().default(false),
+  block_trackers: z.boolean().default(false),
   block_requests: z.string().optional(),
   block_resources: z.array(BlockResource$inboundSchema).optional(),
   prefers_color_scheme: PrefersColorScheme$inboundSchema.default("light"),
   prefers_reduced_motion: PrefersReducedMotion$inboundSchema.default(
     "no-preference",
   ),
-  is_cached: z.nullable(z.boolean().default(false)),
+  is_cached: z.boolean().default(false),
   cache_ttl: z.number().default(3600),
   cache_key: z.string().optional(),
+  user_agent: z.string().optional(),
   headers: z.string().optional(),
   cookies: z.string().optional(),
-  bypass_csp: z.nullable(z.boolean().default(false)),
+  bypass_csp: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "api_key": "apiKey",
@@ -236,6 +244,9 @@ export const TakeScreenshotRequest$inboundSchema: z.ZodType<
     "is_landscape": "isLandscape",
     "has_touch": "hasTouch",
     "device_scale_factor": "deviceScaleFactor",
+    "full_page": "fullPage",
+    "full_page_scroll": "fullPageScroll",
+    "full_page_scroll_duration": "fullPageScrollDuration",
     "block_ads": "blockAds",
     "block_cookie_banners": "blockCookieBanners",
     "block_trackers": "blockTrackers",
@@ -246,6 +257,7 @@ export const TakeScreenshotRequest$inboundSchema: z.ZodType<
     "is_cached": "isCached",
     "cache_ttl": "cacheTtl",
     "cache_key": "cacheKey",
+    "user_agent": "userAgent",
     "bypass_csp": "bypassCsp",
   });
 });
@@ -257,25 +269,29 @@ export type TakeScreenshotRequest$Outbound = {
   selector?: string | null | undefined;
   width: number | null;
   height: number | null;
-  is_mobile: boolean | null;
-  is_landscape: boolean | null;
-  has_touch: boolean | null;
+  is_mobile: boolean;
+  is_landscape: boolean;
+  has_touch: boolean;
   device_scale_factor: number | null;
+  full_page: boolean;
+  full_page_scroll: boolean;
+  full_page_scroll_duration: number | null;
   format: string;
   quality: number;
-  block_ads: boolean | null;
-  block_cookie_banners: boolean | null;
-  block_trackers: boolean | null;
+  block_ads: boolean;
+  block_cookie_banners: boolean;
+  block_trackers: boolean;
   block_requests?: string | undefined;
   block_resources?: Array<string> | undefined;
   prefers_color_scheme: string;
   prefers_reduced_motion: string;
-  is_cached: boolean | null;
+  is_cached: boolean;
   cache_ttl: number;
   cache_key?: string | undefined;
+  user_agent?: string | undefined;
   headers?: string | undefined;
   cookies?: string | undefined;
-  bypass_csp: boolean | null;
+  bypass_csp: boolean;
 };
 
 /** @internal */
@@ -289,27 +305,31 @@ export const TakeScreenshotRequest$outboundSchema: z.ZodType<
   selector: z.nullable(z.string()).optional(),
   width: z.nullable(z.number().default(1920)),
   height: z.nullable(z.number().default(1080)),
-  isMobile: z.nullable(z.boolean().default(false)),
-  isLandscape: z.nullable(z.boolean().default(false)),
-  hasTouch: z.nullable(z.boolean().default(false)),
+  isMobile: z.boolean().default(false),
+  isLandscape: z.boolean().default(false),
+  hasTouch: z.boolean().default(false),
   deviceScaleFactor: z.nullable(z.number().default(1)),
+  fullPage: z.boolean().default(false),
+  fullPageScroll: z.boolean().default(true),
+  fullPageScrollDuration: z.nullable(z.number().default(400)),
   format: Format$outboundSchema.default("jpeg"),
   quality: z.number().default(80),
-  blockAds: z.nullable(z.boolean().default(false)),
-  blockCookieBanners: z.nullable(z.boolean().default(false)),
-  blockTrackers: z.nullable(z.boolean().default(false)),
+  blockAds: z.boolean().default(false),
+  blockCookieBanners: z.boolean().default(false),
+  blockTrackers: z.boolean().default(false),
   blockRequests: z.string().optional(),
   blockResources: z.array(BlockResource$outboundSchema).optional(),
   prefersColorScheme: PrefersColorScheme$outboundSchema.default("light"),
   prefersReducedMotion: PrefersReducedMotion$outboundSchema.default(
     "no-preference",
   ),
-  isCached: z.nullable(z.boolean().default(false)),
+  isCached: z.boolean().default(false),
   cacheTtl: z.number().default(3600),
   cacheKey: z.string().optional(),
+  userAgent: z.string().optional(),
   headers: z.string().optional(),
   cookies: z.string().optional(),
-  bypassCsp: z.nullable(z.boolean().default(false)),
+  bypassCsp: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     apiKey: "api_key",
@@ -317,6 +337,9 @@ export const TakeScreenshotRequest$outboundSchema: z.ZodType<
     isLandscape: "is_landscape",
     hasTouch: "has_touch",
     deviceScaleFactor: "device_scale_factor",
+    fullPage: "full_page",
+    fullPageScroll: "full_page_scroll",
+    fullPageScrollDuration: "full_page_scroll_duration",
     blockAds: "block_ads",
     blockCookieBanners: "block_cookie_banners",
     blockTrackers: "block_trackers",
@@ -327,6 +350,7 @@ export const TakeScreenshotRequest$outboundSchema: z.ZodType<
     isCached: "is_cached",
     cacheTtl: "cache_ttl",
     cacheKey: "cache_key",
+    userAgent: "user_agent",
     bypassCsp: "bypass_csp",
   });
 });

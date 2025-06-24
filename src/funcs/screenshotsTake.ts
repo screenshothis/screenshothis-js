@@ -110,6 +110,9 @@ async function $do(
     "cookies": payload.cookies,
     "device_scale_factor": payload.device_scale_factor,
     "format": payload.format,
+    "full_page": payload.full_page,
+    "full_page_scroll": payload.full_page_scroll,
+    "full_page_scroll_duration": payload.full_page_scroll_duration,
     "has_touch": payload.has_touch,
     "headers": payload.headers,
     "height": payload.height,
@@ -121,6 +124,7 @@ async function $do(
     "quality": payload.quality,
     "selector": payload.selector,
     "url": payload.url,
+    "user_agent": payload.user_agent,
     "width": payload.width,
   });
 

@@ -1,4 +1,4 @@
-speakeasyVersion: 1.561.0
+speakeasyVersion: 1.568.1
 sources:
     Screenshothis API:
         sourceNamespace: screenshothis-api
@@ -10,20 +10,20 @@ sources:
             - 1.0.0
     Screenshothis-OAS:
         sourceNamespace: screenshothis-oas
-        sourceRevisionDigest: sha256:5a297973af40d8ddb0d1c8e17daf0972bc73144346ece380f330661a6f6b52f0
-        sourceBlobDigest: sha256:1c5a0c3eb4d7f26b7819a8300ba27b36ceffcd88034c85e40cc6fdbe5c3804ff
+        sourceRevisionDigest: sha256:e5ea07e743c6b31a3cd7000e8db13d5fcfc68023f77433b3710ee87377cc484c
+        sourceBlobDigest: sha256:3c35a5713b30d6f4d584bbc3c690274a8af8041873a51534bea20ce11dcc9730
         tags:
             - latest
-            - speakeasy-sdk-regen-1749759508
+            - speakeasy-sdk-regen-1749949041
             - 1.0.0
 targets:
     screenshothis:
         source: Screenshothis-OAS
         sourceNamespace: screenshothis-oas
-        sourceRevisionDigest: sha256:5a297973af40d8ddb0d1c8e17daf0972bc73144346ece380f330661a6f6b52f0
-        sourceBlobDigest: sha256:1c5a0c3eb4d7f26b7819a8300ba27b36ceffcd88034c85e40cc6fdbe5c3804ff
+        sourceRevisionDigest: sha256:e5ea07e743c6b31a3cd7000e8db13d5fcfc68023f77433b3710ee87377cc484c
+        sourceBlobDigest: sha256:3c35a5713b30d6f4d584bbc3c690274a8af8041873a51534bea20ce11dcc9730
         codeSamplesNamespace: screenshothis-oas-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:2585475cb9589439e8dbaa2f1c9fcff4548fb2f526c9a9cc54d536a91c45fef8
+        codeSamplesRevisionDigest: sha256:9a385e3000b5848826bed8f39b71e5030212931b6e7b7f9e24dd6207a9679059
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

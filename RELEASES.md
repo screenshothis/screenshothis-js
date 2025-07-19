@@ -59,3 +59,13 @@ Based on:
 - [typescript v1.1.4] .
 ### Releases
 - [NPM v1.1.4] https://www.npmjs.com/package/@screenshothis/sdk/v/1.1.4 - .
+
+## 2025-07-19 00:53:17
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.583.0 (2.658.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.1.5] .
+### Releases
+- [NPM v1.1.5] https://www.npmjs.com/package/@screenshothis/sdk/v/1.1.5 - .

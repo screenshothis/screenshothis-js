@@ -5,7 +5,7 @@ Performs a comprehensive health check of all critical system components includin
 ## Example Usage
 
 ```typescript
-import { HealthCheck } from "@screenshothis/sdk";
+import { HealthCheck } from "@screenshothis/sdk/models";
 
 let value: HealthCheck = {
   status: "healthy",

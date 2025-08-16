@@ -20,8 +20,12 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
   sdkHooksConfigAccess: true
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 typescript:
-  version: 1.1.4
+  version: 1.1.5
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -39,6 +43,7 @@ typescript:
   envVarPrefix: SCREENSHOTHIS
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
+  generateExamples: true
   imports:
     option: openapi
     paths:
@@ -56,4 +61,5 @@ typescript:
   packageName: '@screenshothis/sdk'
   responseFormat: flat
   templateVersion: v2
+  usageSDKInitImports: []
   useIndexModules: true

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Check } from "@screenshothis/sdk";
+import { Check } from "@screenshothis/sdk/models";
 
 let value: Check = {
   name: "<value>",

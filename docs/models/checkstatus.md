@@ -5,7 +5,7 @@ Status of the health check
 ## Example Usage
 
 ```typescript
-import { CheckStatus } from "@screenshothis/sdk";
+import { CheckStatus } from "@screenshothis/sdk/models";
 
 let value: CheckStatus = "fail";
 ```

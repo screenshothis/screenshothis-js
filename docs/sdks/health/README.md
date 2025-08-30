@@ -15,6 +15,7 @@ Performs a comprehensive health check of all critical system components includin
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="health" method="get" path="/health" -->
 ```typescript
 import { Screenshothis } from "@screenshothis/sdk";
 
@@ -79,6 +80,7 @@ Kubernetes-compatible readiness probe that verifies the service is ready to acce
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="ready" method="get" path="/health/ready" -->
 ```typescript
 import { Screenshothis } from "@screenshothis/sdk";
 
@@ -143,6 +145,7 @@ Kubernetes-compatible liveness probe that indicates whether the service is alive
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="live" method="get" path="/health/live" -->
 ```typescript
 import { Screenshothis } from "@screenshothis/sdk";
 

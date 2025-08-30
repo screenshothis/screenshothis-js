@@ -13,6 +13,7 @@ Captures high-quality screenshots of websites with advanced optimization feature
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="takeScreenshot" method="get" path="/v1/screenshots/take" -->
 ```typescript
 import { Screenshothis } from "@screenshothis/sdk";
 

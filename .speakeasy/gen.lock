@@ -3,10 +3,10 @@ id: 8d1d721b-b170-463d-8b55-01615eec3d7c
 management:
   docChecksum: f593aa14da1df14df312c2ac9f36bf8f
   docVersion: 1.0.0
-  speakeasyVersion: 1.568.1
-  generationVersion: 2.634.1
-  releaseVersion: 1.1.4
-  configChecksum: 2ba42f8db874cd5d047a36cb49181cf4
+  speakeasyVersion: 1.606.9
+  generationVersion: 2.687.13
+  releaseVersion: 1.1.5
+  configChecksum: ad533d12531905bfa7da758bcabf0180
   repoURL: https://github.com/screenshothis/screenshothis-js.git
   installationURL: https://github.com/screenshothis/screenshothis-js
   published: true
@@ -15,7 +15,7 @@ features:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.11
+    core: 3.21.20
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -24,7 +24,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
     nullables: 0.1.1
@@ -66,6 +66,10 @@ generatedFiles:
   - docs/sdks/screenshothis/README.md
   - docs/sdks/screenshots/README.md
   - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/package.json
+  - examples/screenshotsTake.example.ts
   - jsr.json
   - package.json
   - src/core.ts
